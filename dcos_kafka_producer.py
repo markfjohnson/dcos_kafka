@@ -1,13 +1,9 @@
 from kafka import KafkaConsumer, KafkaProducer
 from kafka.errors import KafkaError
 
-kafka_url = "broker.kafka.l4lb.thisdcos.directory:9092"
+#kafka_url = "broker.kafka.l4lb.thisdcos.directory:9092"
+kafka_url = "api.kafka.marathon.l4lb.thisdcos.directory:80"
 topic_name = "example_topic"
-kafka_brokers = []
-def create(new_filing):
-    print("-------------")
-    print (new_filing)
-    print ("ABC"+"EFG")
 
 
 def readTopic():
@@ -23,7 +19,7 @@ def readTopic():
 def writeTopic():
     producer = KafkaProducer(bootstrap_servers=kafka_url)
 
-    future = producer.send(topic_name, b'raw_bytes')
+    future = producer.send(topic_name, b'My Message')
 
     # Block for 'synchronous' sends
     try:
